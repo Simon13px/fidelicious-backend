@@ -1,0 +1,149 @@
+@extends('backend.template')
+@section('contenu')
+
+  <hr>
+  <p><h1>Résumé des paramètres</h1><a href="backend" class="btn btn-default">Retour</a></p>
+  <hr>
+
+  <h2>Paramètres généraux</h2>
+  <p>Nom de l'application : <strong>{{$params->nom_app}}</strong></p>
+  <p>Nom des jetons : <strong>{{$params->nom_jetons}}</strong></p>
+  <p>Nombre maximum de jetons : <strong>{{$params->nbr_max_jetons}}</strong></p>
+  <p>Nombre maximum de bons : <strong>{{$params->nbr_max_bons}}</strong></p>
+  <p><a href="settings/general" class="btn btn-default" role="button">Modifier</a></p>
+
+
+  <br>
+  <h2>Images actives</h2>
+
+  <div class="row">
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        @if ($background==null)
+          <img src="img/no_img.png">
+        @else
+          <img src="img/thumb/thumb-background-{{$background->nom}}">
+        @endif
+        <div class="caption">
+          <h3>Fond d'écran actif</h3>
+          <p>Cette image est affichée en arrière plan de l'application.</p>
+          <p><a href="settings/background" class="btn btn-default" role="button">Modifier</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        @if ($logo==null)
+          <img src="img/no_img.png">
+        @else
+          <img src="img/thumb/thumb-logo-{{$logo->nom}}">
+        @endif
+        <div class="caption">
+          <h3>Logo actif</h3>
+          <p>Cette image représente votre logo dans les pages de l'application.</p>
+          <p><a href="settings/logo" class="btn btn-default" role="button">Modifier</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        @if ($pub==null)
+          <img src="img/no_img.png">
+        @else
+          <img src="img/thumb/thumb-pub-{{$pub->nom}}">
+        @endif
+        <div class="caption">
+          <h3>Pub active</h3>
+          <p>Cette image représente la pub qui sera affichée dans l'application.</p>
+          <p><a href="settings/pub" class="btn btn-default" role="button">Modifier</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br>
+  <h2>Pictogrammes actifs</h2>
+
+  <div class="row">
+    <div class="col-sm-4 col-md-2">
+      <div class="thumbnail">
+        @if($pictoval==null)
+          <img src="img/no_img.png">
+        @else
+          <img src="img/thumb/thumb-pictoval-{{$pictoval->nom}}">
+        @endif
+        <div class="caption">
+          <h3>Valider</h3>
+          <p>Cette image représente le pictogramme pour l'action Valider.</p>
+          <p><a href="settings/pictoval" class="btn btn-default" role="button">Modifier</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4 col-md-2">
+      <div class="thumbnail">
+        @if($pictoach==null)
+          <img src="img/no_img.png">
+        @else
+          <img src="img/thumb/thumb-pictoach-{{$pictoach->nom}}">
+        @endif
+        <div class="caption">
+          <h3>Acheter</h3>
+          <p>Cette image représente le pictogramme pour l'action Acheter.</p>
+          <p><a href="settings/pictoach" class="btn btn-default" role="button">Modifier</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4 col-md-2">
+      <div class="thumbnail">
+        @if($pictook==null)
+          <img src="img/no_img.png">
+        @else
+          <img src="img/thumb/thumb-pictook-{{$pictook->nom}}">
+        @endif
+        <div class="caption">
+          <h3>Jeton OK</h3>
+          <p>Cette image représente le pictogramme pour les jetons validés.</p>
+          <p><a href="settings/pictook" class="btn btn-default" role="button">Modifier</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4 col-md-2">
+      <div class="thumbnail">
+        @if($pictonok==null)
+          <img src="img/no_img.png">
+        @else
+          <img src="img/thumb/thumb-pictonok-{{$pictonok->nom}}">
+        @endif
+        <div class="caption">
+          <h3>Jeton restant</h3>
+          <p>Cette image représente le pictogramme pour les jetons restants.</p>
+          <p><a href="settings/pictonok" class="btn btn-default" role="button">Modifier</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4 col-md-2">
+      <div class="thumbnail">
+        @if($pictobon==null)
+          <img src="img/no_img.png">
+        @else
+          <img src="img/thumb/thumb-pictobon-{{$pictobon->nom}}">
+        @endif
+        <div class="caption">
+          <h3>Coupon de réduction</h3>
+          <p>Cette image représente le pictogramme pour le coupon de réduction.</p>
+          <p><a href="settings/pictobon" class="btn btn-default" role="button">Modifier</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+@endsection
