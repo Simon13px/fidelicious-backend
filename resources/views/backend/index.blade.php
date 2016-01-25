@@ -3,7 +3,7 @@
 @section('contenu')
     <br>
 
-    <h1> Gestion </h1>
+    <h1> Fidelicio.us | Gestion </h1>
     <hr>
 
   <nav class="navbar navbar-default">

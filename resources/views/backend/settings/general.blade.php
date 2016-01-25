@@ -7,14 +7,6 @@
 
   {!! Form::open(['method' => 'POST', 'url' => 'settings/general', 'class' => 'form-horizontal']) !!}
 
-
-      <div class="form-group">
-          {!! Form::label('nom_app', 'Nom de l\'application', ['class' => 'col-sm-3 control-label']) !!}
-        <div class="col-sm-2">
-            {!! Form::text('nom_app', $settings->nom_app, ['class' => 'form-control', 'required' => 'required']) !!}
-            <small class="text-danger">{{ $errors->first('nom_app') }}</small>
-        </div>
-      </div>
       <div class="form-group">
           {!! Form::label('nom_jetons', 'Nom des jetons :', ['class' => 'col-sm-3 control-label']) !!}
         <div class="col-sm-2">

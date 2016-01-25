@@ -30,7 +30,7 @@
       <div class="form-group">
           {!! Form::label('gsm', 'GSM :', ['class' => 'col-sm-2 control-label']) !!}
           <div class="col-sm-3">
-            {!! Form::number('gsm', $client->GSM, ['class' => 'form-control', 'required' => 'required']) !!}
+            {!! Form::number('gsm', $client->gsm, ['class' => 'form-control', 'required' => 'required']) !!}
             <small class="text-danger">{{ $errors->first('gsm') }}</small>
         </div>
       </div>
@@ -69,9 +69,10 @@
             <small class="text-danger">{{ $errors->first('bons') }}</small>
         </div>
       </div>
+      <input type="hidden" name="id" value="{{$client->id}}">
       <div class="btn-group pull-left">
           {!! Form::reset("Reset", ['class' => 'btn btn-warning']) !!}
-          {!! Form::submit("Créer", ['class' => 'btn btn-success']) !!}
+          {!! Form::submit("Enregistrer", ['class' => 'btn btn-success']) !!}
       </div>
   {!! Form::close() !!}
 

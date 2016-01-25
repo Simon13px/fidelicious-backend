@@ -2,11 +2,10 @@
 @section('contenu')
 
   <hr>
-  <p><h1>Résumé des paramètres</h1><a href="backend" class="btn btn-default">Retour</a></p>
+  <p><h1>Résumé des paramètres</h1><a href="/" class="btn btn-default">Retour</a></p>
   <hr>
 
   <h2>Paramètres généraux</h2>
-  <p>Nom de l'application : <strong>{{$params->nom_app}}</strong></p>
   <p>Nom des jetons : <strong>{{$params->nom_jetons}}</strong></p>
   <p>Nombre maximum de jetons : <strong>{{$params->nbr_max_jetons}}</strong></p>
   <p>Nombre maximum de bons : <strong>{{$params->nbr_max_bons}}</strong></p>
@@ -19,11 +18,7 @@
   <div class="row">
     <div class="col-sm-6 col-md-4">
       <div class="thumbnail">
-        @if ($background==null)
-          <img src="img/no_img.png">
-        @else
-          <img src="img/thumb/thumb-background-{{$background->nom}}">
-        @endif
+          <img src="{{$background->thumb_url}}">
         <div class="caption">
           <h3>Fond d'écran actif</h3>
           <p>Cette image est affichée en arrière plan de l'application.</p>
@@ -33,11 +28,7 @@
     </div>
     <div class="col-sm-6 col-md-4">
       <div class="thumbnail">
-        @if ($logo==null)
-          <img src="img/no_img.png">
-        @else
-          <img src="img/thumb/thumb-logo-{{$logo->nom}}">
-        @endif
+        <img src="{{$logo->thumb_url}}">
         <div class="caption">
           <h3>Logo actif</h3>
           <p>Cette image représente votre logo dans les pages de l'application.</p>
@@ -47,11 +38,7 @@
     </div>
     <div class="col-sm-6 col-md-4">
       <div class="thumbnail">
-        @if ($pub==null)
-          <img src="img/no_img.png">
-        @else
-          <img src="img/thumb/thumb-pub-{{$pub->nom}}">
-        @endif
+        <img src="{{$pub->thumb_url}}">
         <div class="caption">
           <h3>Pub active</h3>
           <p>Cette image représente la pub qui sera affichée dans l'application.</p>
@@ -65,13 +52,9 @@
   <h2>Pictogrammes actifs</h2>
 
   <div class="row">
-    <div class="col-sm-4 col-md-2">
+    <div class="col-sm-4 col-md-2 ">
       <div class="thumbnail">
-        @if($pictoval==null)
-          <img src="img/no_img.png">
-        @else
-          <img src="img/thumb/thumb-pictoval-{{$pictoval->nom}}">
-        @endif
+        <img src="{{$pictoval->thumb_url}}">
         <div class="caption">
           <h3>Valider</h3>
           <p>Cette image représente le pictogramme pour l'action Valider.</p>
@@ -81,11 +64,7 @@
     </div>
     <div class="col-sm-4 col-md-2">
       <div class="thumbnail">
-        @if($pictoach==null)
-          <img src="img/no_img.png">
-        @else
-          <img src="img/thumb/thumb-pictoach-{{$pictoach->nom}}">
-        @endif
+        <img src="{{$pictoach->thumb_url}}">
         <div class="caption">
           <h3>Acheter</h3>
           <p>Cette image représente le pictogramme pour l'action Acheter.</p>
@@ -95,11 +74,7 @@
     </div>
     <div class="col-sm-4 col-md-2">
       <div class="thumbnail">
-        @if($pictook==null)
-          <img src="img/no_img.png">
-        @else
-          <img src="img/thumb/thumb-pictook-{{$pictook->nom}}">
-        @endif
+        <img src="{{$pictook->thumb_url}}">
         <div class="caption">
           <h3>Jeton OK</h3>
           <p>Cette image représente le pictogramme pour les jetons validés.</p>
@@ -109,11 +84,7 @@
     </div>
     <div class="col-sm-4 col-md-2">
       <div class="thumbnail">
-        @if($pictonok==null)
-          <img src="img/no_img.png">
-        @else
-          <img src="img/thumb/thumb-pictonok-{{$pictonok->nom}}">
-        @endif
+        <img src="{{$pictonok->thumb_url}}">
         <div class="caption">
           <h3>Jeton restant</h3>
           <p>Cette image représente le pictogramme pour les jetons restants.</p>
@@ -123,11 +94,7 @@
     </div>
     <div class="col-sm-4 col-md-2">
       <div class="thumbnail">
-        @if($pictobon==null)
-          <img src="img/no_img.png">
-        @else
-          <img src="img/thumb/thumb-pictobon-{{$pictobon->nom}}">
-        @endif
+        <img src="{{$pictobon->thumb_url}}">
         <div class="caption">
           <h3>Coupon de réduction</h3>
           <p>Cette image représente le pictogramme pour le coupon de réduction.</p>
@@ -136,14 +103,4 @@
       </div>
     </div>
   </div>
-
-
-
-
-
-
-
-
-
-
 @endsection

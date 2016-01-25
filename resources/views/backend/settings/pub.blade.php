@@ -9,11 +9,14 @@
   @forelse ($item_list as $pub)
   <div class="col-xs-6 col-md-3">
     <div class="thumbnail">
-      <img src="/{{$pub->url}}">
+      <img src="/{{$pub->thumb_url}}">
     </div>
     <div class="caption">
-      <h4>{{$pub->name}}</h4>
-      <p><a href="pub/active/{{$pub->id}}" class="btn btn-default" role="button">Choisir</a> <a href="pub/delete/{{$pub->id}}" class="btn btn-default" role="button">Supprimer</a></p>
+      @if ($pub->actif)
+        <p><a href="pub/active/{{$pub->id}}" class="btn btn-default" role="button" disabled>Actif</a> <a href="pub/delete/{{$pub->id}}" class="btn btn-default" role="button">Supprimer</a></p>
+      @else
+        <p><a href="pub/active/{{$pub->id}}" class="btn btn-default" role="button">Choisir</a> <a href="pub/delete/{{$pub->id}}" class="btn btn-default" role="button">Supprimer</a></p>
+      @endif
     </div>
   </div>
   @empty

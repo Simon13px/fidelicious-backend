@@ -8,7 +8,7 @@ class Vente extends Model {
 
 	protected $table = 'ventes';
 	public $timestamps = true;
-	protected $fillable = array('FK_client_id', 'FK_vendeur_id', 'FK_produit_id','gratuit');
+	protected $fillable = array('FK_client_id', 'FK_vendeur_id', 'FK_produit_id', 'user_id', 'count');
 
 	public function client()
 	{
@@ -23,6 +23,10 @@ class Vente extends Model {
 	public function produit()
 	{
 		return $this->hasOne('App\Produit', 'FK_produit_id');
+	}
+
+	public function user(){
+		return $this->hasOne('App\User');
 	}
 
 }

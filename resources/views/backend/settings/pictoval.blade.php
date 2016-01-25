@@ -9,11 +9,14 @@
   @forelse ($item_list as $pictoval)
   <div class="col-xs-6 col-md-3">
     <div class="thumbnail">
-      <img src="/{{$pictoval->url}}">
+      <img src="/{{$pictoval->thumb_url}}">
     </div>
     <div class="caption">
-      <h4>{{$pictoval->name}}</h4>
-      <p><a href="pictoval/active/{{$pictoval->id}}" class="btn btn-default" role="button">Choisir</a> <a href="pictoval/delete/{{$pictoval->id}}" class="btn btn-default" role="button">Supprimer</a></p>
+      @if ($pictoval->actif)
+        <p><a href="pictoval/active/{{$pictoval->id}}" class="btn btn-default" role="button" disabled>Actif</a> <a href="pictoval/delete/{{$pictoval->id}}" class="btn btn-default" role="button">Supprimer</a></p>
+      @else
+        <p><a href="pictoval/active/{{$pictoval->id}}" class="btn btn-default" role="button">Choisir</a> <a href="pictoval/delete/{{$pictoval->id}}" class="btn btn-default" role="button">Supprimer</a></p>
+      @endif
     </div>
   </div>
   @empty

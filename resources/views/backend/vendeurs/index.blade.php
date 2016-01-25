@@ -1,7 +1,7 @@
 @extends('backend.template')
 @section('contenu')
 
-  <p><h1>Vendeurs</h1><a href="backend" class="btn btn-default">Retour</a></p>
+  <p><h1>Vendeurs</h1><a href="/" class="btn btn-default">Retour</a></p>
   <hr>
 
   <a href="vendeurs/add" class="btn btn-default" role="button">Créer un vendeur</a>
@@ -22,7 +22,7 @@
       </tr>
     </thead>
     <tbody>
-    @foreach ($liste_vendeurs as $vendeur)
+    @forelse ($liste_vendeurs as $vendeur)
       <tr>
         <td>{{$vendeur->prenom}}</td>
         <td>{{$vendeur->nom}}</td>
@@ -38,7 +38,9 @@
           </a>
         </td>
       <tr>
-    @endforeach
+    @empty
+      <h3>Aucun vendeur n'est enregistré pour l'instant.</h3>
+    @endforelse
     </tbody>
   </table>
   </div>

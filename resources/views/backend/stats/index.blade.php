@@ -19,16 +19,16 @@
     <h3>Trier par : </h3>
     <div class="navbar navbar-default">
       <ul class="nav nav-tabs">
-        <li role="presentation" class="active"><a href="">Toutes les ventes</a></li>
-        <li role="presentation"><a href="/stats/ventes_gratuits">Ventes gratuites</a></li>
+        <li role="presentation" class="active"><a href="">Nombre de ventes</a></li>
+        <li role="presentation"><a href="/stats/ventes_gratuits">Nombre de sandwiches vendus</a></li>
       </ul>
       <br>
       <ul class="nav nav-pills">
-          <li class="{{ Input::get('days') == 7 || Input::get('days') == '' ? 'active' : ''}}"><a href="{{ url('stats?days=7') }}">7 jours</a></li>
-          <li class="{{ Input::get('days') == 30 ? 'active' : ''}}"><a href="{{ url('/stats?days=30') }}">30 jours</a></li>
-          <li class="{{ Input::get('days') == 60 ? 'active' : ''}}"><a href="{{ url('/stats?days=60') }}">60 jours</a></li>
-          <li class="{{ Input::get('days') == 90 ? 'active' : ''}}"><a href="{{ url('/stats?days=90') }}">90 jours</a></li>
-          <li class="{{ Input::get('days') == 365 ? 'active' : ''}}"><a href="{{ url('/stats?days=365') }}">1 an</a></li>
+          <li class="{{ $request->input('days') == 7 || $request->input('days') == '' ? 'active' : ''}}"><a href="{{ url('stats?days=7') }}">7 jours</a></li>
+          <li class="{{ $request->input('days') == 30 ? 'active' : ''}}"><a href="{{ url('/stats?days=30') }}">30 jours</a></li>
+          <li class="{{ $request->input('days') == 60 ? 'active' : ''}}"><a href="{{ url('/stats?days=60') }}">60 jours</a></li>
+          <li class="{{ $request->input('days') == 90 ? 'active' : ''}}"><a href="{{ url('/stats?days=90') }}">90 jours</a></li>
+          <li class="{{ $request->input('days') == 365 ? 'active' : ''}}"><a href="{{ url('/stats?days=365') }}">1 an</a></li>
       </ul>
 
       <div id="stats-container" style="height: 400px;"></div>
