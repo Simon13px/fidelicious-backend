@@ -12,6 +12,7 @@ use Symfony\Component\HttpKernel\EventListener\DebugHandlersListener;
 |
 */
 
+Route::get('/test', 'TestController@index');
 
 
 /*
@@ -64,9 +65,11 @@ Route::group(['middleware' => 'web'], function () {
 
     ///// STATS /////
     Route::get('/stats','StatsController@index');
+    Route::get('/stats/ventes/sandwiches','StatsController@ventes_sandwiches');
     Route::get('/stats/vendeurs','StatsController@vendeurs');
     Route::get('/stats/clients','StatsController@clients');
     Route::get('/stats/ventes','StatsController@index');
-    Route::get('/stats/ventes_vendeurs','StatsController@ventes_vendeurs');
+    Route::get('/stats/vendeurs/ventes','StatsController@ventes_vendeurs');
+    Route::get('/stats/vendeurs/sandwiches','StatsController@vendeurs_sandwiches');
     Route::get('/stats/visites_clients','StatsController@visites_clients');
 });

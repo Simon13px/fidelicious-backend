@@ -96,9 +96,7 @@
 
     public function activeNewItem($id)
     {
-      $new = Picture::find($id);
-      $new->actif = true;
-      $new->save();
+      $new = Picture::find($id)->update(['actif'=>1]);      
     }
 
     public function deletePicture($id)

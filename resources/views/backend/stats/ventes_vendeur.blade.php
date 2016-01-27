@@ -21,31 +21,22 @@
       <ul class="nav nav-tabs">
         <li role="presentation" ><a href="/stats/vendeurs">Ventes totales</a></li>
         <li role="presentation" class="active"><a href="">Ventes par période</a></li>
-        <li role="presentation"><a href="/stats/vendeurs_gratuits">Ventes gratuites</a></li>
+        <li role="presentation"><a href="/stats/vendeurs/sandwiches">Ventes gratuites</a></li>
       </ul>
       <br>
       <ul class="nav nav-pills">
-          <li class="{{ Input::get('days') == 7 || Input::get('days') == '' ? 'active' : ''}}"><a href="{{ url('/stats/ventes_vendeurs?days=7') }}">7 jours</a></li>
-          <li class="{{ Input::get('days') == 30 ? 'active' : ''}}"><a href="{{ url('/stats/ventes_vendeurs?days=30') }}">30 jours</a></li>
-          <li class="{{ Input::get('days') == 60 ? 'active' : ''}}"><a href="{{ url('/stats/ventes_vendeurs?days=60') }}">60 jours</a></li>
-          <li class="{{ Input::get('days') == 90 ? 'active' : ''}}"><a href="{{ url('/stats/ventes_vendeurs?days=90') }}">90 jours</a></li>
-          <li class="{{ Input::get('days') == 365 ? 'active' : ''}}"><a href="{{ url('/stats/ventes_vendeurs?days=365') }}">1 an</a></li>
+          <li class="{{ $request->input('days') == 7 || $request->input('days') == '' ? 'active' : ''}}"><a href="{{ url('/stats/vendeurs/ventes?days=7') }}">7 jours</a></li>
+          <li class="{{ $request->input('days') == 30 ? 'active' : ''}}"><a href="{{ url('/stats/vendeurs/ventes?days=30') }}">30 jours</a></li>
+          <li class="{{ $request->input('days') == 60 ? 'active' : ''}}"><a href="{{ url('/stats/vendeurs/ventes?days=60') }}">60 jours</a></li>
+          <li class="{{ $request->input('days') == 90 ? 'active' : ''}}"><a href="{{ url('/stats/vendeurs/ventes?days=90') }}">90 jours</a></li>
+          <li class="{{ $request->input('days') == 365 ? 'active' : ''}}"><a href="{{ url('/stats/vendeurs/ventes?days=365') }}">1 an</a></li>
       </ul>
 
-      <div id="stats-container" style="height: 400px;"></div>
+      <div class="container-fluid" style="width:900px">
+          <canvas id="BarChart" ></canvas>
+      </div>
 
-      <script type="text/javascript">
-
-        var data = <?php echo $stats; ?>;
-
-        new Morris.Bar({
-          element: 'stats-container',
-          data: data,
-          xkey: 'prenom',
-          ykeys: ['value'],
-          labels: ['Ventes']
-        });
-      </script>
+    {!! app()->chartbar->render("BarChart", $data) !!}
 
     </div>
 

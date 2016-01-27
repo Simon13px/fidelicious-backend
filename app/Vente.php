@@ -8,21 +8,21 @@ class Vente extends Model {
 
 	protected $table = 'ventes';
 	public $timestamps = true;
-	protected $fillable = array('FK_client_id', 'FK_vendeur_id', 'FK_produit_id', 'user_id', 'count');
+	protected $fillable = array('client_id', 'vendeur_id', 'produit_id', 'user_id', 'count');
 
 	public function client()
 	{
-		return $this->hasOne('App\Client', 'FK_client_id');
+		return $this->hasOne('App\Client', 'client_id');
 	}
 
 	public function vendeur()
 	{
-		return $this->hasOne('App\Vendeur', 'FK_vendeur_id');
+		return $this->hasOne('App\Vendeur', 'vendeur_id');
 	}
 
 	public function produit()
 	{
-		return $this->hasOne('App\Produit', 'FK_produit_id');
+		return $this->hasOne('App\Produit', 'produit_id');
 	}
 
 	public function user(){

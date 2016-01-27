@@ -19,8 +19,8 @@
     <h3>Trier par : </h3>
     <div class="navbar navbar-default">
       <ul class="nav nav-tabs">
-        <li role="presentation" class="active"><a href="">Nombre de ventes</a></li>
-        <li role="presentation"><a href="/stats/ventes/sandwiches">Nombre de sandwiches vendus</a></li>
+        <li role="presentation" ><a href="/stats/ventes">Nombre de ventes</a></li>
+        <li role="presentation" class="active"><a href="/stats/ventes/sandwiches">Nombre de sandwiches vendus</a></li>
       </ul>
       <br>
       <ul class="nav nav-pills">
@@ -34,6 +34,14 @@
       <div class="container-fluid" style="width:900px">
           <canvas id="BarChart" ></canvas>
       </div>
+
     {!! app()->chartbar->render("BarChart", $data) !!}
+
+
+
+
     </div>
+
+
+
 @endsection

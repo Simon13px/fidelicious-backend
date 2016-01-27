@@ -28,17 +28,91 @@ class StatsController extends Controller
 
       $range = \Carbon\Carbon::now()->subDays($days);
 
-      $stats = $this->stat->getStatsVentes($range, $userid);
+      $ventes = $this->stat->getStatsVentes($range, $userid);
 
-      // $stats = Vente::where('created_at','>=',$range)
-      //   ->groupBy('date')
-      //   ->orderBy('date','DESC')
-      //   ->get([
-      //       DB::raw('Date(created_at) as date'),
-      //       DB::raw('COUNT(*) as value')
-      //     ])
-      //     ->toJSON();
+      $data = array();
 
-      return view('backend.stats.index', compact('stats'))->with('request', $request);
+      foreach($ventes as $vente)
+      {
+        $data = array_add($data, $vente->date, array($vente->value));
+      }
+
+      return view('backend.stats.index')->with(['request'=> $request, 'data'=>$data]);
+    }
+
+    public function ventes_sandwiches(Request $request)
+    {
+      $userid = Auth::user()->id;
+
+      $days = $request->input('days', 7);
+
+      $range = \Carbon\Carbon::now()->subDays($days);
+
+      $ventes = $this->stat->getStatsVentesSandwiches($range, $userid);
+
+      $data = array();
+
+      foreach($ventes as $vente)
+      {
+        $data = array_add($data, $vente->date, array($vente->value));
+      }
+
+      return view('backend.stats.ventes_sandwiches')->with(['request'=> $request, 'data'=>$data]);
+    }
+
+    public function vendeurs(Request $request)
+    {
+      $userid = Auth::user()->id;
+
+      $ventes = $this->stat->getStatsTotalVendeur($userid);
+
+      $data = array();
+
+      foreach ($ventes as $vente) {
+        $data = array_add($data, $vente->prenom.' '.$vente->nom, array($vente->value));
+      }
+
+      return view('backend.stats.vendeurs')->with(['request'=> $request, 'data'=>$data]);
+    }
+
+    public function ventes_vendeurs(Request $request)
+    {
+      $userid = Auth::user()->id;
+
+      $days = $request->input('days',7);
+
+      $range = \Carbon\Carbon::now()->subDays($days);
+
+      $ventes = $this->stat->getStatsPeriodVendeur($userid, $range);
+
+      $data = array();
+
+      foreach($ventes as $vente)
+      {
+        $data = array_add($data, $vente->prenom.' '.$vente->nom, array($vente->value));
+      }
+
+      return view('backend.stats.ventes_vendeur')->with(['request'=>$request, 'data'=>$data]);
+    }
+
+    public function vendeurs_sandwiches(Request $request)
+    {
+      $userid = Auth::user()->id;
+
+      $days = $request->input('days',7);
+
+      $range = \Carbon\Carbon::now()->subDays($days);
+
+      $ventes = $this->stat->getStatsVendeurSandwiches($userid, $range);
+
+      $data = array();
+
+      foreach($ventes as $vente)
+      {
+        $data = array_add($data, $vente->prenom.' '.$vente->nom, array($vente->value));
+      }
+
+      return view('backend.stats.vendeurs_sandwiches')->with(['request'=>$request, 'data'=>$data]);
+
     }
 }
