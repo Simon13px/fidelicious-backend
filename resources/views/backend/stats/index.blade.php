@@ -1,10 +1,6 @@
 @extends('backend.template')
 @section('contenu')
 
-  <p><h1>Statistiques</h1><a href="/backend" class="btn btn-default">Retour</a></p>
-
-  <hr>
-
   <h3>Statistiques sur : </h3>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
@@ -20,7 +16,7 @@
     <div class="navbar navbar-default">
       <ul class="nav nav-tabs">
         <li role="presentation" class="active"><a href="">Nombre de ventes</a></li>
-        <li role="presentation"><a href="/stats/ventes/sandwiches">Nombre de sandwiches vendus</a></li>
+        <li role="presentation"><a href="/stats/ventes/sandwiches">Nombre de produits vendus</a></li>
       </ul>
       <br>
       <ul class="nav nav-pills">

@@ -152,6 +152,9 @@ return [
         Folklore\Image\ImageServiceProvider::class,
         Khill\Lavacharts\Laravel\LavachartsServiceProvider::class,
         Fx3costa\Laravelchartjs\Providers\ChartjsServiceProvider::class,
+        Watson\Active\ActiveServiceProvider::class,
+
+
 
 
         /*
@@ -211,6 +214,8 @@ return [
         'Form'      => Collective\Html\FormFacade::class,
         'Html'      => Collective\Html\HtmlFacade::class,
         'Image'     => Folklore\Image\Facades\Image::class,
+        'Active' => Watson\Active\Facades\Active::class,
+
 
     ],
 

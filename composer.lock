@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "15ed370bfe605675fd39be888397c6ab",
-    "content-hash": "b5e33b50a7ff153a6d55afc6172561c4",
+    "hash": "8499f0539765e67fa46dc2d15ed69e96",
+    "content-hash": "8d9eb7ead3e1cb2199b0ad9c8f5a450b",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -2160,6 +2160,57 @@
                 "environment"
             ],
             "time": "2015-12-29 15:10:30"
+        },
+        {
+            "name": "watson/active",
+            "version": "2.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dwightwatson/active.git",
+                "reference": "51f7dc592271d6f06c58a389005e3c504b200f1f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dwightwatson/active/zipball/51f7dc592271d6f06c58a389005e3c504b200f1f",
+                "reference": "51f7dc592271d6f06c58a389005e3c504b200f1f",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/http": "~5.0",
+                "illuminate/routing": "~5.0",
+                "illuminate/support": "~5.0",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Watson\\Active\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dwight Watson",
+                    "email": "dwight@studiousapp.com"
+                }
+            ],
+            "description": "Laravel helper for recognising the current route, controller and action",
+            "keywords": [
+                "active",
+                "laravel",
+                "routing"
+            ],
+            "time": "2015-11-20 06:01:23"
         }
     ],
     "packages-dev": [

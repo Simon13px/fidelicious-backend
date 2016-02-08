@@ -31,6 +31,12 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/', ['middleware'=>'auth', function(){
       return view('backend.index');
     }]);
+    Route::get('/home', function(){
+      return redirect('/');
+    });
+    Route::get('/backend', function(){
+      return redirect('/');
+    });
 
     //Partie Paramètres
     Route::get('/settings','SettingsController@index');

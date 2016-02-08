@@ -1,21 +1,6 @@
 @extends('backend.template')
 
-@section('contenu')
-    <br>
-
-    <h1> Fidelicio.us | Gestion </h1>
-    <hr>
-
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <ul class="list-inline nav navbar-nav">
-        <li><a href="vendeurs">Vendeurs</a></li>
-        <li><a href="clients">Clients</a></li>
-        <li><a href="settings">Paramètres</a></li>
-        <li><a href="stats">Statistiques</a></li>
-      </ul>
-    </div>
-  </nav>
+@section('contenu')    
 
   <p><h2>Bienvenue sur la partie gestion de l'application. D'ici vous pouvez accéder aux différents paramètres pour personnaliser l'application.</h2><p>
   <br>

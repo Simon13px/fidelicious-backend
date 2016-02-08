@@ -1,10 +1,6 @@
 @extends('backend.template')
 @section('contenu')
 
-  <p><h1>Clients</h1><a href="/" class="btn btn-default">Retour</a></p>
-
-  <hr>
-
   <p><a href="/clients/add" class="btn btn-default">Ajouter un client</a></p>
 
   <h2>Liste des clients enregistrés</h2>
@@ -93,7 +89,7 @@
         </td>
       </tr>
     @empty
-      <h2>Il n'y a encore aucun client enregistré.</h2>
+      <h2>Aucun client ne répond aux critères.</h2>
     @endforelse
     </table>
   </div>

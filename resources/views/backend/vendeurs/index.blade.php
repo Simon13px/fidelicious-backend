@@ -1,9 +1,6 @@
 @extends('backend.template')
 @section('contenu')
 
-  <p><h1>Vendeurs</h1><a href="/" class="btn btn-default">Retour</a></p>
-  <hr>
-
   <a href="vendeurs/add" class="btn btn-default" role="button">Créer un vendeur</a>
   <br><br>
 

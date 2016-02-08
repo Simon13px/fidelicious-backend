@@ -9,9 +9,9 @@
     <script type="text/javascript" src="/js/jquery.tablesorter.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script><body>
 
-    <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
+    <!-- <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-    <script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"></script>
+    <script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"></script> -->
 
 		{!! Html::style('css/bootstrap.css') !!}
 		{!! Html::style('css/bootstrap.min.css') !!}
@@ -22,6 +22,17 @@
 		<style> textarea { resize: none; } </style>
 	</head>
 	<body>
+    <a href="/"><img class="logo" src="/img/logo_fidelicious.png"></a>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <ul class="list-inline nav navbar-nav">
+          <li class="{{ active(['vendeurs']) }}"><a href="/vendeurs" >Vendeurs</a></li>
+          <li class="{{ active(['clients','clients/*']) }}"><a href="/clients">Clients</a></li>
+          <li class="{{ active(['settings','settings/*']) }}"><a href="/settings">Paramètres</a></li>
+          <li class="{{ active(['stats','stats/*']) }}"><a href="/stats">Statistiques</a></li>
+        </ul>
+      </div>
+    </nav>
 		@yield('contenu')
 	</body>
 

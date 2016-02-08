@@ -20,8 +20,8 @@
         $picture->type = $type;
         $picture->nom = '';
         if($type == 'logo'){
-          $picture->url = 'img/no_logo.png';
-          $picture->thumb_url = 'img/no_logo.png';
+          $picture->url = 'img/logo_fidelicious.png';
+          $picture->thumb_url = 'img/logo_fidelicious.png';
         }elseif($type=='background'){
           $picture->url = 'img/no_bg.png';
           $picture->thumb_url = 'img/no_bg.png';
@@ -96,7 +96,7 @@
 
     public function activeNewItem($id)
     {
-      $new = Picture::find($id)->update(['actif'=>1]);      
+      $new = Picture::find($id)->update(['actif'=>1]);
     }
 
     public function deletePicture($id)

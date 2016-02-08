@@ -1,10 +1,6 @@
 @extends('backend.template')
 @section('contenu')
 
-  <p><h1>Statistiques</h1><a href="/backend" class="btn btn-default">Retour</a></p>
-
-  <hr>
-
   <h3>Statistiques sur : </h3>
   <nav class="navbar navbar-default">
     <div class="container-fluid">

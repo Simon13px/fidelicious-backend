@@ -2,7 +2,7 @@
 @section('contenu')
 
   <hr>
-  <p><h1>Résumé des paramètres</h1><a href="/" class="btn btn-default">Retour</a></p>
+  <p><h1>Résumé des paramètres</h1></p>
   <hr>
 
   <h2>Paramètres généraux</h2>
