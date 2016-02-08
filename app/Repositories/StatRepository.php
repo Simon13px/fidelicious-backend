@@ -69,4 +69,19 @@
                 ->orderBy('prenom')
                 ->get();
     }
+
+    public function getStatsVendeurDiscount($userid, $range)
+    {
+      return DB::table('ventes')
+                ->join('vendeurs','ventes.vendeur_id','=','vendeurs.id')
+                ->select(DB::raw('sum(discount) as value, vendeurs.prenom as prenom, vendeurs.nom as nom'))
+                ->where([
+                    ['ventes.created_at','>=',$range],
+                    ['ventes.user_id','=',$userid],
+                    ['ventes.discount','>',0]
+                  ])
+                ->groupBy('prenom')
+                ->orderBy('prenom')
+                ->get();
+    }
   }

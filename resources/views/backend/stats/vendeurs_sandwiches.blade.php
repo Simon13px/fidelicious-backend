@@ -17,6 +17,13 @@
       @include('backend.stats.menu_vendeurs')
       <br>
 
+      <ul class="nav nav-pills">
+          <li class="{{ $request->input('days') == 7 || $request->input('days') == '' ? 'active' : ''}}"><a href="{{ url('/stats/vendeurs/sandwiches?days=7') }}">7 jours</a></li>
+          <li class="{{ $request->input('days') == 30 ? 'active' : ''}}"><a href="{{ url('/stats/vendeurs/sandwiches?days=30') }}">30 jours</a></li>
+          <li class="{{ $request->input('days') == 60 ? 'active' : ''}}"><a href="{{ url('/stats/vendeurs/sandwiches?days=60') }}">60 jours</a></li>
+          <li class="{{ $request->input('days') == 90 ? 'active' : ''}}"><a href="{{ url('/stats/vendeurs/sandwiches?days=90') }}">90 jours</a></li>
+          <li class="{{ $request->input('days') == 365 ? 'active' : ''}}"><a href="{{ url('/stats/vendeurs/sandwiches?days=365') }}">1 an</a></li>
+      </ul>
       <div class="container-fluid" style="width:900px">
           <canvas id="BarChart" ></canvas>
       </div>

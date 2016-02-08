@@ -78,4 +78,5 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/stats/vendeurs/ventes','StatsController@ventes_vendeurs');
     Route::get('/stats/vendeurs/sandwiches','StatsController@vendeurs_sandwiches');
     Route::get('/stats/visites_clients','StatsController@visites_clients');
+    Route::get('/stats/vendeurs/discount','StatsController@vendeurs_discount');
 });

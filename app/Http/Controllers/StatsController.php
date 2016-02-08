@@ -115,4 +115,25 @@ class StatsController extends Controller
       return view('backend.stats.vendeurs_sandwiches')->with(['request'=>$request, 'data'=>$data]);
 
     }
+
+    public function vendeurs_discount(Request $request)
+    {
+      $userid = Auth::user()->id;
+
+      $days = $request->input('days',7);
+
+      $range = \Carbon\Carbon::now()->subDays($days);
+
+      $ventes = $this->stat->getStatsVendeurDiscount($userid, $range);
+
+      $data = array();
+
+      foreach($ventes as $vente)
+      {
+        $data = array_add($data, $vente->prenom.' '.$vente->nom, array($vente->value));
+      }
+
+      return view('backend.stats.vendeurs_gratuits')->with(['request'=>$request, 'data'=>$data]);
+
+    }
 }

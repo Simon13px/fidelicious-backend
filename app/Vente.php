@@ -8,7 +8,7 @@ class Vente extends Model {
 
 	protected $table = 'ventes';
 	public $timestamps = true;
-	protected $fillable = array('client_id', 'vendeur_id', 'produit_id', 'user_id', 'count');
+	protected $fillable = array('client_id', 'vendeur_id', 'produit_id', 'user_id', 'count', 'discount');
 
 	public function client()
 	{

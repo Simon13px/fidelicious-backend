@@ -8,4 +8,5 @@
     public function getStatsTotalVendeur($userid);
     public function getStatsPeriodVendeur($userid, $range);
     public function getStatsVendeurSandwiches($userid, $range);
+    public function getStatsVendeurDiscount($userid, $range);
   }
