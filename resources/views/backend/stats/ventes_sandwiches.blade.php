@@ -14,10 +14,7 @@
 
     <h3>Trier par : </h3>
     <div class="navbar navbar-default">
-      <ul class="nav nav-tabs">
-        <li role="presentation" ><a href="/stats/ventes">Nombre de ventes</a></li>
-        <li role="presentation" class="active"><a href="/stats/ventes/sandwiches">Nombre de produits vendus</a></li>
-      </ul>
+      @include('backend.stats.menu_ventes')
       <br>
       <ul class="nav nav-pills">
           <li class="{{ $request->input('days') == 7 || $request->input('days') == '' ? 'active' : ''}}"><a href="{{ url('stats/ventes/sandwiches?days=7') }}">7 jours</a></li>

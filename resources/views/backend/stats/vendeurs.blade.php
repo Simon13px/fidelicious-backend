@@ -14,11 +14,7 @@
 
     <h3>Trier par : </h3>
     <div class="navbar navbar-default">
-      <ul class="nav nav-tabs">
-        <li role="presentation" class="active"><a href="/stats/vendeurs">Ventes totales</a></li>
-        <li role="presentation"><a href="/stats/vendeurs/ventes">Ventes par période</a></li>
-        <li role="presentation"><a href="/stats/vendeurs/sandwiches">Produits vendus</a></li>
-      </ul>
+      @include('backend.stats.menu_vendeurs')
       <br>
 
       <div class="container-fluid" style="width:900px">

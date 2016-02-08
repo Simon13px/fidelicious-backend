@@ -14,11 +14,7 @@
 
     <h3>Trier par : </h3>
     <div class="navbar navbar-default">
-      <ul class="nav nav-tabs">
-        <li role="presentation"><a href="/stats/vendeurs">Ventes totales</a></li>
-        <li role="presentation"><a href="/stats/ventes_vendeurs">Ventes par période</a></li>
-        <li role="presentation" class="active"><a href="">Ventes gratuites</a></li>
-      </ul>
+      @include('backend.stats.menu_vendeurs')
       <br>
       <ul class="nav nav-pills">
           <li class="{{ Input::get('days') == 7 || Input::get('days') == '' ? 'active' : ''}}"><a href="{{ url('stats/vendeurs_gratuits?days=7') }}">7 jours</a></li>
