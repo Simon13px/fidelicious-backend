@@ -136,4 +136,44 @@ class StatsController extends Controller
       return view('backend.stats.vendeurs_gratuits')->with(['request'=>$request, 'data'=>$data]);
 
     }
+
+    public function clients(Request $request)
+    {
+      $userid = Auth::user()->id;
+
+      $days = $request->input('days',7);
+
+      $range = \Carbon\Carbon::now()->subDays($days);
+
+      $ventes = $this->stat->getStatsClient($userid, $range);
+
+      $data = array();
+
+      foreach($ventes as $vente)
+      {
+        $data = array_add($data, $vente->date, array($vente->value));
+      }
+
+      return view('backend.stats.clients')->with(['request'=>$request, 'data'=>$data]);
+    }
+
+    public function visites_clients(Request $request)
+    {
+      $userid = Auth::user()->id;
+
+      $days = $request->input('days',7);
+
+      $range = \Carbon\Carbon::now()->subDays($days);
+
+      $ventes = $this->stat->getStatsVisitesClient($userid, $range);
+
+      $data = array();
+
+      foreach($ventes as $vente)
+      {
+        $data = array_add($data, $vente->gsm, array($vente->value));
+      }
+
+      return view('backend.stats.visites_clients')->with(['request'=>$request, 'data'=>$data]);
+    }
 }

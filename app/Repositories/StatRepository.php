@@ -4,6 +4,7 @@
 
   use App\User;
   use DB;
+  use App\Client;
 
   class StatRepository implements IStatRepository {
     public function getStatsVentes($range, $userid)
@@ -83,5 +84,27 @@
                 ->groupBy('prenom')
                 ->orderBy('prenom')
                 ->get();
+    }
+
+    public function getStatsClient($userid, $range)
+    {
+      return Client::where('created_at','>=',$range)
+        ->groupBy('date')
+        ->orderBy('date','DESC')
+        ->get([
+            DB::raw('Date(created_at) as date'),
+            DB::raw('COUNT(*) as value')
+          ]);
+    }
+
+    public function getStatsVisitesClient($userid, $range)
+    {
+      return DB::table('ventes')
+          ->join('clients','ventes.client_id','=','clients.id')
+          ->select(DB::raw('count(*) as value, clients.GSM as gsm'))
+          ->where('ventes.created_at','>=',$range)
+          ->groupBy('gsm')
+          ->orderBy('gsm')
+          ->get();
     }
   }
