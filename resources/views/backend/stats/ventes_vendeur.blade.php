@@ -5,9 +5,7 @@
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <ul class="list-inline nav navbar-nav">
-        <li ><a href="/stats/ventes">Ventes</a></li>
-        <li class="active"><a href="">Vendeurs</a></li>
-        <li><a href="/stats/clients">Clients</a></li>
+        @include('backend.stats.menu_stats')
       </ul>
     </divv>
   </nav>
@@ -24,7 +22,10 @@
           <li class="{{ $request->input('days') == 365 ? 'active' : ''}}"><a href="{{ url('/stats/vendeurs/ventes?days=365') }}">1 an</a></li>
       </ul>
 
-      <div class="container-fluid" style="width:900px">
+      <div class="container-fluid col-sm-10" >
+          @if(empty($data))
+            <h3>Aucune donnée ne correspond à la période donnée</h3>
+          @endif
           <canvas id="BarChart" ></canvas>
       </div>
 

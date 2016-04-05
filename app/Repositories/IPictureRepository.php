@@ -10,4 +10,6 @@
       public function oldItem($item, $userid);
       public function activeNewItem($id);
       public function deletePicture($id);
+      public function getDefaultPicture($type);
+      public function setDefaultPicture($url, $type, $userid);
   }

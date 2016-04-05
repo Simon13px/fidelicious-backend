@@ -25,20 +25,9 @@
     {
       $settings = User::find($userid)->setting;
 
-      if(is_null($settings))
-      {
-        User::find($userid)->setting()
-        ->create([
-          'nom_jetons'      => $nom_jetons,
-          'nbr_max_bons'    => $max_bons,
-          'nbr_max_jetons'  => $max_jetons
-        ])->save();
-      }else{
-        $settings = new Setting();
-        $settings->nom_jetons = $nom_jetons;
-        $settings->nbr_max_bons = $max_bons;
-        $settings->nbr_max_jetons = $max_jetons;
-        $settings->save();
-      }
+      $settings->nom_jetons = $nom_jetons;
+      $settings->nbr_max_bons = $max_bons;
+      $settings->nbr_max_jetons = $max_jetons;
+      $settings->save();
     }
   }

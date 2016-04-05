@@ -3,4 +3,5 @@
   <li role="presentation" class="{{ active(['stats/vendeurs/ventes']) }}"><a href="/stats/vendeurs/ventes">Ventes par période</a></li>
   <li role="presentation" class="{{ active(['stats/vendeurs/sandwiches']) }}"><a href="/stats/vendeurs/sandwiches">Produits vendus</a></li>
   <li role="presentation" class="{{ active(['stats/vendeurs/discount']) }}"><a href="/stats/vendeurs/discount">Produits gratuits</a></li>
+  <li role="presentation" class="{{ active(['stats/vendeurs/cancelled']) }}"><a href="/stats/vendeurs/cancelled">Commandes annulées</a></li>  
 </ul>

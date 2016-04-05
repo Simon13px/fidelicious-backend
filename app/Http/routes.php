@@ -28,9 +28,8 @@ Route::get('/test', 'TestController@index');
 
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
-    Route::get('/', ['middleware'=>'auth', function(){
-      return view('backend.index');
-    }]);
+    Route::get('/', ['middleware'=>'auth', 'uses'=>'BackendController@checkWizard']);
+    Route::post('/wizard','WizardController@store');
     Route::get('/home', function(){
       return redirect('/');
     });
@@ -61,6 +60,7 @@ Route::group(['middleware' => 'web'], function () {
     ///// CLIENTS /////
     Route::get('/clients','ClientsController@index');
     Route::get('/clients/listbon','ClientsController@listingBon');
+    Route::get('/clients/confirmed','ClientsController@listingConfirm');
     Route::get('/clients/add',function(){
       return view('backend.clients.add');
     });
@@ -77,6 +77,9 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/stats/ventes','StatsController@index');
     Route::get('/stats/vendeurs/ventes','StatsController@ventes_vendeurs');
     Route::get('/stats/vendeurs/sandwiches','StatsController@vendeurs_sandwiches');
-    Route::get('/stats/clients/visites','StatsController@visites_clients');
+    Route::get('/stats/vendeurs/cancelled','StatsController@vendeurs_cancelled');
+    Route::get('/stats/clients/top','StatsController@top_clients');
+    Route::get('/stats/clients/topbuying','StatsController@topbuying_clients');
     Route::get('/stats/vendeurs/discount','StatsController@vendeurs_discount');
+    Route::get('/stats/misc','StatsController@misc');
 });

@@ -19,7 +19,7 @@ class StatsController extends Controller
       $this->middleware('auth');
       $this->stat = $stat;
     }
-
+    /* VENTES */
     public function index(Request $request)
     {
       $userid = Auth::user()->id;
@@ -37,7 +37,8 @@ class StatsController extends Controller
         $data = array_add($data, $vente->date, array($vente->value));
       }
 
-      return view('backend.stats.index')->with(['request'=> $request, 'data'=>$data]);
+      // return view('backend.stats.index')->with(['request'=> $request, 'data'=>$data]);
+      return view('backend.stats.index',['request'=>$request, 'data'=>$data]);
     }
 
     public function ventes_sandwiches(Request $request)
@@ -59,7 +60,9 @@ class StatsController extends Controller
 
       return view('backend.stats.ventes_sandwiches')->with(['request'=> $request, 'data'=>$data]);
     }
+    /*** FIN VENTES ***/
 
+    /* VENDEURS */
     public function vendeurs(Request $request)
     {
       $userid = Auth::user()->id;
@@ -137,6 +140,25 @@ class StatsController extends Controller
 
     }
 
+    public function vendeurs_cancelled()
+    {
+      $userid = Auth::id();
+
+      $ventes = $this->stat->getStatsVendeursCancelled($userid);
+
+      $data = array();
+
+      foreach($ventes as $vente)
+      {
+        $data = array_add($data, $vente->prenom.' '.$vente->nom, array($vente->value));
+      }
+
+      return view('backend.stats.vendeurs_cancelled')->with('data',$data);
+    }
+
+    /*** FIN VENDEURS ***/
+
+    /* CLIENTS */
     public function clients(Request $request)
     {
       $userid = Auth::user()->id;
@@ -157,23 +179,53 @@ class StatsController extends Controller
       return view('backend.stats.clients')->with(['request'=>$request, 'data'=>$data]);
     }
 
-    public function visites_clients(Request $request)
+    public function top_clients(Request $request)
     {
       $userid = Auth::user()->id;
 
-      $days = $request->input('days',7);
-
-      $range = \Carbon\Carbon::now()->subDays($days);
-
-      $ventes = $this->stat->getStatsVisitesClient($userid, $range);
+      $ventes = $this->stat->getStatsTopClient($userid);
 
       $data = array();
 
-      foreach($ventes as $vente)
-      {
+      foreach ($ventes as $vente) {
         $data = array_add($data, $vente->gsm, array($vente->value));
       }
 
-      return view('backend.stats.visites_clients')->with(['request'=>$request, 'data'=>$data]);
+      return view('backend.stats.top_clients')->with(['request'=> $request, 'data'=>$data]);
     }
+
+    public function topbuying_clients(Request $request)
+    {
+      $userid = Auth::user()->id;
+
+      $ventes = $this->stat->getStatsTopBuyingClient($userid);
+
+      $data = array();
+
+      foreach ($ventes as $vente) {
+        $data = array_add($data, $vente->gsm, array($vente->value));
+      }
+
+      return view('backend.stats.topbuying_clients')->with(['request'=> $request, 'data'=>$data]);
+    }
+
+    /*** FIN CLIENTS ***/
+
+    /* MISC */
+    public function misc()
+    {
+
+      $userid = Auth::id();
+
+      $datas = $this->stat->getMiscTotals($userid);
+
+      return view('backend.stats.misc')->with('datas',$datas);
+    }
+
+
+
+
+
+
+    /*** FIN MISC ***/
 }

@@ -6,8 +6,9 @@
   <h2>Liste des clients enregistrés</h2>
   <div class="navbar navbar-default">
     <ul class="nav nav-tabs">
-      <li role="presentation" class="active"><a href="clients">Tous les clients</a></li>
+      <li role="presentation" class="active"><a href="/clients">Tous les clients</a></li>
       <li role="presentation"><a href="/clients/listbon">Clients avec un bon</a></li>
+      <li role="presentation"><a href="/clients/confirmed">Clients confirmés</a></li>
     </ul>
     <br>
     <p>{{$count}} clients enregistrés</p>

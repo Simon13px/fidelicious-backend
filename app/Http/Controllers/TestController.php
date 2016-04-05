@@ -21,31 +21,21 @@ class TestController extends Controller
     public function index()
     {
 
-      // $days = 7;
-      // $range = \Carbon\Carbon::now()->subDays($days);
+      // $vendeur = new Vendeur([
+      //   'nom' => 'Simon',
+      //   'prenom' => 'Cornet',
+      //   'code' => '5436'
+      // ]);
       //
-      // $ventes = Vente::where('created_at','>=', $range)
-      //   ->groupBy('date')
-      //   ->orderBy('date','DESC')
-      //   ->get([
-      //     DB::raw('Date(created_at) as date'),
-      //     DB::raw('COUNT(*) as value'),
-      //     DB::raw('SUM(count) as count')
-      //   ]);
+      // $array = array();
       //
-      // $data = array();
+      // $array = array_add($array , 'vendeur',$vendeur);
       //
-      // foreach($ventes as $vente)
-      // {
-      //   $data = array_add($data, $vente->date, array($vente->value, $vente->count));
-      // }
-      //
-      // return view('test.index')->with('data', $data);
-
-      $range = \Carbon\Carbon::now()->subDays(3600);
-
-      dd($range);
+      // $value = array_get($array, 'vendeur.prenom');
+      // dd($value);
 
 
+    $array = array("pouet","meuh");
+    dd($array);
     }
 }

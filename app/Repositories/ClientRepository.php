@@ -17,6 +17,11 @@
       return User::find($userid)->clients()->where('bons_restants','>',0)->get();
     }
 
+    public function getConfirmed($userid)
+    {
+      return User::find($userid)->clients()->where('confirme',1)->get();
+    }
+
     public function storeClient($input, $userid)
     {
       User::find($userid)->clients()->create([

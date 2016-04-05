@@ -108,4 +108,21 @@
       $del->delete();
     }
 
+    public function getDefaultPicture($type)
+    {
+      return Picture::where(['defaultpic'=>1,'type'=>$type])->get();
+    }
+
+    public function setDefaultPicture($url, $type, $userid){
+      User::find($userid)->pictures()
+        ->create([
+          'nom' => $type.'-default.png',
+          'type' => $type,
+          'actif' => true,
+          'url' => $url,
+          'thumb_url' => $url,
+          'defaultpic' => true
+        ])->save();
+    }
+
   }

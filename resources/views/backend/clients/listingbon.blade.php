@@ -8,6 +8,7 @@
     <ul class="nav nav-tabs">
       <li role="presentation"><a href="/clients">Tous les clients</a></li>
       <li role="presentation" class="active"><a href="listbon">Clients avec un bon</a></li>
+      <li role="presentation"><a href="/clients/confirmed">Clients confirmés</a></li>
     </ul>
     <br>
     <p>{{$count}} clients possèdent au moins un bon.</p>

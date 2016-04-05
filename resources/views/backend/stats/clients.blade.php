@@ -5,9 +5,7 @@
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <ul class="list-inline nav navbar-nav">
-        <li ><a href="ventes">Ventes</a></li>
-        <li ><a href="vendeurs">Vendeurs</a></li>
-        <li class="active"><a href="">Clients</a></li>
+        @include('backend.stats.menu_stats')
       </ul>
     </divv>
   </nav>
@@ -15,8 +13,7 @@
     <h3>Trier par : </h3>
     <div class="navbar navbar-default">
       <ul class="nav nav-tabs">
-        <li role="presentation" class="active"><a href="">Inscriptions</a></li>
-        <li role="presentation" ><a href="/stats/clients/visites">Nombre de visites</a></li>
+        @include('backend.stats.menu_clients')
       </ul>
       <br>
       <ul class="nav nav-pills">
@@ -27,8 +24,10 @@
           <li class="{{ $request->input('days') == 365 ? 'active' : ''}}"><a href="{{ url('/stats/clients?days=365') }}">1 an</a></li>
       </ul>
 
-      <div class="container-fluid" style="width:900px">
-        <div id="chart_legend" class="chart-legend"></div>
+      <div class="container-fluid col-sm-10" >
+          @if(empty($data))
+            <h3>Aucune donnée ne correspond à la période donnée</h3>
+          @endif
           <canvas id="BarChart" ></canvas>
       </div>
 

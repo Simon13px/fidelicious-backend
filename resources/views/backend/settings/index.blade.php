@@ -16,33 +16,35 @@
   <h2>Images actives</h2>
 
   <div class="row">
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-          <img src="{{$background->thumb_url}}">
-        <div class="caption">
-          <h3>Fond d'écran actif</h3>
-          <p>Cette image est affichée en arrière plan de l'application.</p>
-          <p><a href="settings/background" class="btn btn-default" role="button">Modifier</a></p>
+    <div class="row col-eq-img">
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <img src="{{$background->thumb_url}}">
+          <div class="caption">
+            <h3>Fond d'écran actif</h3>
+            <p>Cette image est affichée en arrière plan de l'application.</p>
+            <p><a href="settings/background" class="btn btn-default" role="button">Modifier</a></p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-        <img src="{{$logo->thumb_url}}">
-        <div class="caption">
-          <h3>Logo actif</h3>
-          <p>Cette image représente votre logo dans les pages de l'application.</p>
-          <p><a href="settings/logo" class="btn btn-default" role="button">Modifier</a></p>
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <img src="{{$logo->thumb_url}}">
+          <div class="caption">
+            <h3>Logo actif</h3>
+            <p>Cette image représente votre logo dans les pages de l'application.</p>
+            <p><a href="settings/logo" class="btn btn-default" role="button">Modifier</a></p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-        <img src="{{$pub->thumb_url}}">
-        <div class="caption">
-          <h3>Pub active</h3>
-          <p>Cette image représente la pub qui sera affichée dans l'application.</p>
-          <p><a href="settings/pub" class="btn btn-default" role="button">Modifier</a></p>
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <img src="{{$pub->thumb_url}}">
+          <div class="caption">
+            <h3>Pub active</h3>
+            <p>Cette image représente la pub qui sera affichée dans l'application.</p>
+            <p><a href="settings/pub" class="btn btn-default" role="button">Modifier</a></p>
+          </div>
         </div>
       </div>
     </div>
@@ -103,4 +105,5 @@
       </div>
     </div>
   </div>
+    
 @endsection

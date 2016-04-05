@@ -36,6 +36,15 @@ class ClientsController extends Controller
         return view('backend.clients.listingbon')->with(['liste_clients'=>$liste_clients,'count'=>$count]);
       }
 
+      public function listingConfirm(){
+        $userid = Auth::user()->id;
+        $liste_clients = $this->client->getConfirmed($userid);
+
+        $count = $liste_clients->count();
+
+        return view('backend.clients.listingconfirmed')->with(['liste_clients'=>$liste_clients,'count'=>$count]);
+      }
+
       public function postAdd(Request $request)
       {
         $userid = Auth::user()->id;
