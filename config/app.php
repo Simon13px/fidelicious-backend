@@ -65,7 +65,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'fr',
 
     /*
     |--------------------------------------------------------------------------
@@ -153,6 +153,7 @@ return [
         Khill\Lavacharts\Laravel\LavachartsServiceProvider::class,
         Fx3costa\Laravelchartjs\Providers\ChartjsServiceProvider::class,
         Watson\Active\ActiveServiceProvider::class,
+        Laravel\Cashier\CashierServiceProvider::class,
 
 
 

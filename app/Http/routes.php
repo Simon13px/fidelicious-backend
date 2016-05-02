@@ -12,7 +12,19 @@ use Symfony\Component\HttpKernel\EventListener\DebugHandlersListener;
 |
 */
 
-Route::get('/test', 'TestController@index');
+// Route::get('/test', 'TestController@index');
+
+// Route::group(['middleware'=>'web'], function(){
+//     Route::auth();
+    
+//     Route::group(['middleware'=>['auth','subscribed']],function(){
+//         Route::get('/','BackendController@checkWizard');
+//     });
+
+    
+// });
+
+
 
 
 /*
@@ -28,7 +40,15 @@ Route::get('/test', 'TestController@index');
 
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
-    Route::get('/', ['middleware'=>'auth', 'uses'=>'BackendController@checkWizard']);
+
+    Route::get('/notsubscribed', function(){
+        return view('notsubscribed');
+    })->middleware('auth');
+
+    Route::group(['middleware'=>['auth','subscribed']], function(){
+
+    
+    Route::get('/','BackendController@checkWizard');
     Route::post('/wizard','WizardController@store');
     Route::get('/home', function(){
       return redirect('/');
@@ -36,6 +56,8 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/backend', function(){
       return redirect('/');
     });
+
+    
 
     //Partie Paramètres
     Route::get('/settings','SettingsController@index');
@@ -82,4 +104,6 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/stats/clients/topbuying','StatsController@topbuying_clients');
     Route::get('/stats/vendeurs/discount','StatsController@vendeurs_discount');
     Route::get('/stats/misc','StatsController@misc');
+    });
 });
+
