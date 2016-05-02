@@ -37,7 +37,6 @@ class StatsController extends Controller
         $data = array_add($data, $vente->date, array($vente->value));
       }
 
-      // return view('backend.stats.index')->with(['request'=> $request, 'data'=>$data]);
       return view('backend.stats.index',['request'=>$request, 'data'=>$data]);
     }
 
